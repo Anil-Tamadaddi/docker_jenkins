@@ -20,9 +20,10 @@
 #EXPOSE 80
  
  
-FROM  centos:latest
+FROM ubuntu
 MAINTAINER anil@gmail.com
-RUN yum install -y httpd \
+RUN apt update
+RUN apt install -y httpd \
   zip\
   unzip
 ADD https://www.free-css.com/free-css-templates/page286/creative-studio.zip /var/www/html/
