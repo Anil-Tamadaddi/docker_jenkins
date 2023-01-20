@@ -2,6 +2,7 @@ FROM ubuntu
 MAINTAINER aniltamadaddi946@gmail.com
 RUN apt-get update
 RUN apt -y install nginx
+EXPOSE 80
 #CMD [“echo”,”Image created”]
 
 #FROM  ubuntu:latest
