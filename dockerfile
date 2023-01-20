@@ -2,7 +2,7 @@ FROM ubuntu
 MAINTAINER aniltamadaddi946@gmail.com
 RUN apt-get update
 RUN apt -y install nginx
-CMD [“echo”,”Image created”]
+#CMD [“echo”,”Image created”]
 
 #FROM  ubuntu:latest
 #MAINTAINER anil@gmail.com
