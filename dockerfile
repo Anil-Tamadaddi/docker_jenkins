@@ -25,11 +25,11 @@ MAINTAINER anil@gmail.com
 RUN yum install -y httpd \
   zip\
   unzip
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page265/shine.zip /var/www/html/
+ADD https://www.free-css.com/free-css-templates/page286/creative-studio.zip /var/www/html/
 WORKDIR /var/www/html/
-RUN unzip shine.zip
-RUN cp -rvf shine/* .
-RUN rm -rf shine shine.zip
+RUN unzip creative-studio.zip
+RUN cp -rvf /* creative-studio.
+RUN rm -rf creative-studio creative-studio.zip
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 EXPOSE 80   
 
