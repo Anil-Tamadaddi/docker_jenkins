@@ -15,6 +15,6 @@ RUN curl -sSL "http://www.polishmywriting.com/download/atd_distribution${ATD_VER
 	&& rm /tmp/atd.tar.gz*
 
 WORKDIR /usr/src/atd
-EXPOSE 1049
+EXPOSE 80
 
 ENTRYPOINT [ "sh", "-c", "/usr/src/atd/run.sh" ]
