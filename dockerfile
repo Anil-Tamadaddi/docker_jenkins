@@ -1,20 +1,20 @@
-FROM ubuntu 
-MAINTAINER aniltamadaddi946@gmail.com
-RUN apt-get update
-RUN apt -y install nginx
-EXPOSE 80
-CMD [“echo”,”Image created”]
+FROM openjdk:8-alpine
 
-#FROM  ubuntu:latest
-#MAINTAINER anil@gmail.com
-#RUN apt update
-#RUN apt install -y micro-httpd \
-# zip\
-# unzip
-#ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
-#WORKDIR /var/www/html/
-#RUN unzip photogenic.zip
-#RUN cp -rvf photogenic/* .
-#RUN rm -rf photogenic photogenic.zip
-#CMD ["/usr/sbin/micro-httpd", "-D", "FOREGROUND"]
-#EXPOSE 80
+RUN apk add --no-cache \
+	ca-certificates \
+	curl \
+	tar
+
+ENV LANG C.UTF-8
+# https://open.afterthedeadline.com/download/download-source-code/
+ENV ATD_VERSION 081310
+
+RUN curl -sSL "http://www.polishmywriting.com/download/atd_distribution${ATD_VERSION}.tgz" -o /tmp/atd.tar.gz \
+	&& mkdir -p /usr/src/atd \
+	&& tar -xzf /tmp/atd.tar.gz -C /usr/src/atd --strip-components 1 \
+	&& rm /tmp/atd.tar.gz*
+
+WORKDIR /usr/src/atd
+EXPOSE 1049
+
+ENTRYPOINT [ "sh", "-c", "/usr/src/atd/run.sh" ]
