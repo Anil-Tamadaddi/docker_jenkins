@@ -1,4 +1,5 @@
 pipeline {
+    
     agent any
     environment {
         def docker_run = 'docker run -itd --name anil -p 9000:80 dockermen31/docker_jenkins'
